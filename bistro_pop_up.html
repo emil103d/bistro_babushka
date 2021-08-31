@@ -52,7 +52,7 @@
         margin-left: 10vw;
       }
 
-      section {
+      #template_section {
         margin: 30px 10vw 30px;
       }
 
@@ -95,6 +95,56 @@
         border-style: dotted;
       }
 
+      .pop_up {
+        position: fixed;
+      }
+
+         #pop_up {
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(255, 166, 0, 0.28);
+        overflow: scroll;
+      }
+
+      #pop_up .pop_up_article {
+        width: 70vw;
+        margin: 4rem auto;
+        border-radius: 25px;
+        padding: 12px;
+        background-color: white;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      #pop_up .tekst {
+        margin: 20px;
+      }
+
+      #pop_up .pop_up_article img {
+          width: 90%;
+          height: auto;
+      }
+
+      #luk {
+        position: fixed;
+        padding: 1rem;
+        font-size: 1.7rem;
+        font-weight: bolder;
+        color: red;
+        cursor: pointer;
+        top: 1vw;
+       left: 15vh;
+      }
+
+      .mere {
+          font-style: italic;
+          color: orange;
+      }
+
       @media (min-width: 600px) {
         header h1 {
           font-size: 40px;
@@ -128,10 +178,24 @@
         <button data-kategori="alle" class="alle">Alle</button>
         <button data-kategori="forretter" class="valgt">Forretter</button>
         <button data-kategori="hovedretter">Hovedretter</button>
+         <button data-kategori="sideorders">Sideorders</button>
         <button data-kategori="desserter">Desserter</button>
         <button data-kategori="drikkevarer">Drikkevarer</button>
       </nav>
-      <section></section>
+      <section id="pop_up">
+           <div id="luk">&#x2715</div>
+      <article class="pop_up_article">
+        <img src="" alt="" />
+        <div class="tekst">
+        <h3></h3>
+        <p>Beskrivelse: <span class="langbeskrivelse"></span></p>
+        <p>Oprindelse <span class="oprindelsesregion"></span></p>
+        <p>Pris: <span class="pris"></span></p>
+        <p class="mere">Læs mere</p>
+        </div>
+      </article>
+      </section>
+      <section id="template_section"></section>
       <template>
         <article class="menu">
           <img src="" alt="" />
@@ -177,7 +241,7 @@
       }
 
       function visRetter() {
-        const container = document.querySelector("section");
+        const container = document.querySelector("#template_section");
         const retTemplate = document.querySelector("template").content;
         container.textContent = "";
         retter.forEach((ret) => {
@@ -191,12 +255,33 @@
             klon.querySelector(".indhold").textContent = ret.kortbeskrivelse;
             klon.querySelector(".pris").textContent =
               "Pris: " + ret.pris + "kr. ";
-            klon.querySelector(".menu").addEventListener("click", () => {
-              location.href = `single_ret.html?id=${ret._id}`;
-            });
+              klon
+              .querySelector(".menu")
+              .addEventListener("click", () => visDetaljer(ret));
             container.appendChild(klon);
           }
         });
+      }
+
+
+      function visDetaljer(ret) {
+        const popup = document.querySelector("#pop_up");
+        popup.style.display = "block";
+        popup.querySelector("img").src =
+              "medium/" + ret.billednavn + "-md.jpg";
+        popup.querySelector("h3").textContent = ret.navn;
+         popup.querySelector(".langbeskrivelse").textContent =
+          ret.langbeskrivelse;
+        popup.querySelector(".oprindelsesregion").textContent =
+          "Oprindeligt fra " + ret.oprindelsesregion + ".";
+        popup.querySelector(".pris").textContent =
+          "Pris: " + ret.pris + "kr. ";
+        document
+          .querySelector("#luk")
+          .addEventListener("click", () => popup.style.display = "none");
+             document.querySelector(".mere").addEventListener("click", () => {
+              location.href = `single_ret.html?id=${ret._id}`;
+            });
       }
 
       //   function visDetaljer(hvem) {
@@ -205,3 +290,5 @@
     </script>
   </body>
 </html>
+
+
