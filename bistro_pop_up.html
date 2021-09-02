@@ -408,9 +408,6 @@
       document.addEventListener("DOMContentLoaded", start);
       let retter;
       let filter = "alle";
-
-      let menuKnap = document.querySelector(".menuknap");
-      let menuOpen = false;
       
 
       function start() {
@@ -420,6 +417,9 @@
         );
         hentData();
       }
+
+      let menuKnap = document.querySelector(".menuknap");
+      let menuOpen = false;
 
       function filtrerRetter() {
         filter = this.dataset.kategori;
@@ -511,6 +511,7 @@ menuKnap.addEventListener("click", () => {
     menuKnap.classList.remove("open");
     menuOpen = false;
     document.querySelector("#burger").classList.add("hidden");
+    document.querySelector(".valgt").classList.remove("valgt");
   }
 });
 
