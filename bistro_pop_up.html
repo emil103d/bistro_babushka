@@ -408,6 +408,9 @@
       document.addEventListener("DOMContentLoaded", start);
       let retter;
       let filter = "alle";
+
+      let menuKnap = document.querySelector(".menuknap");
+      let menuOpen = false;
       
 
       function start() {
@@ -498,9 +501,6 @@ ScrollToTop.addEventListener("click", () => {
     behavior: "smooth",
   });
 });
-
-const menuKnap = document.querySelector(".menuknap");
-      let menuOpen = false;
 
 menuKnap.addEventListener("click", () => {
   if (!menuOpen) {
