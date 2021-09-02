@@ -11,6 +11,8 @@
       rel="stylesheet"
     />
     <style>
+
+        /* ------------Generelt----------------- */
       img {
         width: 100%;
         height: 60%;
@@ -29,7 +31,7 @@
         border-color: lightblue;
         padding: 4px;
         border-radius: 12px;
-        padding-bottom: 18px;
+        padding-bottom: 29px;
       }
 
       .menu:hover {
@@ -67,6 +69,8 @@
           
       }
 
+         /* ------------Skrift----------------- */
+
       h2 {
          font-family: bree, sans-serif;
         font-weight: 500;
@@ -89,6 +93,8 @@
         font-weight: 200;
         font-style: normal;
       }
+
+       /* ------------Knapper----------------- */
 
       button {
         background-color: lightblue;
@@ -118,6 +124,8 @@
         border-style: dotted;
         color: #C83200;
       }
+
+        /* ------------Pop Up----------------- */
 
       .pop_up {
         position: fixed;
@@ -182,100 +190,103 @@
 
       /* ------------Til toppen----------------- */
 
-#btnScrollToTop {
-  position: fixed;
-  right: 10px;
-  bottom: 35px;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: lightblue;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
-  color: white;
-  outline: none;
-  border: none;
-  cursor: pointer;
-}
+        #btnScrollToTop {
+        position: fixed;
+        right: 10px;
+        bottom: 35px;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: lightblue;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+        color: white;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        }
 
-#btnScrollToTop:active {
-  background: #2E5984;
-}
+        #btnScrollToTop:active {
+        background: #2E5984;
+        }
 
-#burger {
-    position: absolute;
-    display: flex;
-    padding-top: 35px;
-    flex-direction: column;
-    background-color: rgba(198,228,238,0.31);
-}
+/* ------------Burger menu----------------- */
+
+        #burger {
+            position: absolute;
+            display: flex;
+            margin-top: 45px;
+            flex-direction: column;
+            background-color: rgba(198,228,238,0.31);
+            padding-right: 70vw;
+        }
 
 
-.menuknap {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 60px;
-  height: 60px;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-  /* border: 3px solid gray; */
-  grid-column: 1;
-  grid-row: 1;
-}
+        .menuknap {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60px;
+        height: 60px;
+        cursor: pointer;
+        transition: all 0.5s ease-in-out;
+        /* border: 3px solid gray; */
+        grid-column: 1;
+        grid-row: 1;
+        }
 
-.menuknap_burger {
-  width: 30px;
-  height: 2px;
-  background: #231709;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.5s ease-in-out;
-}
+        .menuknap_burger {
+        width: 30px;
+        height: 2px;
+        background: #231709;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+        transition: all 0.5s ease-in-out;
+        }
 
-.menuknap_burger::before,
-.menuknap_burger::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 2px;
-  background: #231709;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
-  transition: all 0.5s ease-in-out;
-}
+        .menuknap_burger::before,
+        .menuknap_burger::after {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 2px;
+        background: #231709;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+        transition: all 0.5s ease-in-out;
+        }
 
-.menuknap_burger::before {
-  transform: translateY(-10px);
-}
+        .menuknap_burger::before {
+        transform: translateY(-10px);
+        }
 
-.menuknap_burger::after {
-  transform: translateY(10px);
-}
+        .menuknap_burger::after {
+        transform: translateY(10px);
+        }
 
-/* -----header animation---- */
+        /* -----header animation---- */
 
-.menuknap.open .menuknap_burger {
-  transform: translateX(50px);
-  background: transparent;
-}
+        .menuknap.open .menuknap_burger {
+        transform: translateX(50px);
+        background: transparent;
+        }
 
-.menuknap.open .menuknap_burger::before {
-  transform: rotate(45deg) translate(-35px, 35px);
-}
+        .menuknap.open .menuknap_burger::before {
+        transform: rotate(45deg) translate(-35px, 35px);
+        }
 
-.menuknap.open .menuknap_burger::after {
-  transform: rotate(-45deg) translate(-35px, -35px);
-}
+        .menuknap.open .menuknap_burger::after {
+        transform: rotate(-45deg) translate(-35px, -35px);
+        }
 
-.hidden {
-  opacity: 0;
-  transform: translateY(-100vw);
-}
+        .hidden {
+        opacity: 0;
+        transform: translateY(-100vw);
+        }
 
-.ingen_menu {
-    display: none;
-}
+        .ingen_menu {
+            display: none;
+        }
 
 
       @media (min-width: 800px) {
@@ -297,17 +308,17 @@
         place-items: center;
       }
 
-    .menuknap{
-            display: none;
-        }
+        .menuknap{
+                display: none;
+            }
 
-        h2 {
-             grid-column: 1 / 3;
-             margin-left: 10vw;
-        }
+            h2 {
+                grid-column: 1 / 3;
+                margin-left: 10vw;
+            }
 
         .ingen_menu {
-    display: initial;
+        display: initial;
       }
 
       #luk {
@@ -329,6 +340,9 @@
 
 }
       }
+
+
+
     </style>
   </head>
   <body>
@@ -384,14 +398,13 @@
         <i class="material-icons">arrow_upward</i>
       </button>
     </main>
+
+
     <script>
       document.addEventListener("DOMContentLoaded", start);
       let retter;
       let filter = "alle";
-
-
-      const menuKnap = document.querySelector(".menuknap");
-      let menuOpen = false;
+      
 
       function start() {
            let filterKnapper = document.querySelectorAll("nav button");
@@ -451,7 +464,6 @@
         });
       }
 
-
       function visDetaljer(ret) {
         const popup = document.querySelector("#pop_up");
         popup.style.display = "block";
@@ -483,6 +495,8 @@ ScrollToTop.addEventListener("click", () => {
   });
 });
 
+const menuKnap = document.querySelector(".menuknap");
+      let menuOpen = false;
 
 menuKnap.addEventListener("click", () => {
   if (!menuOpen) {
