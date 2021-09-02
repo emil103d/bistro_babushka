@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="https://use.typekit.net/dzi1zgx.css" />
+      <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <style>
       img {
         width: 100%;
@@ -16,15 +20,16 @@
 
       section {
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
         gap: 10px;
       }
 
       article {
-        border: 1px solid;
-        border-color: orange;
+        border: 2px solid;
+        border-color: lightblue;
         padding: 4px;
         border-radius: 12px;
+        padding-bottom: 18px;
       }
 
       .menu:hover {
@@ -33,15 +38,15 @@
       }
 
       header {
-        background-color: orange;
-        padding: 20px;
+        background-color: lightblue;
+        padding: 10px;
       }
 
       header h1 {
-        font-size: 32px;
-        color: red;
+        font-size: 60px;
+        color: #C83200;
         text-align: center;
-        font-family: hwt-roman-extended-fat-face, serif;
+        font-family: continuo, sans-serif;
         font-weight: 900;
         font-style: normal;
         text-transform: uppercase;
@@ -56,43 +61,62 @@
         margin: 30px 10vw 30px;
       }
 
+      .headerTop {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          
+      }
+
       h2 {
-        font-family: hwt-roman-extended-light-fac, serif;
-        margin-left: 10vw;
+         font-family: bree, sans-serif;
+        font-weight: 500;
+        font-style: normal;
+        margin-left: 22vw;
+        color: #C83200;
+        display: grid;
+        grid-column: 2;
+        margin-top: 15px;
       }
 
       h3 {
-        font-family: hwt-roman-extended-light-fac, serif;
+         font-family: bree, sans-serif;
+        font-weight: 400;
+        font-style: normal;
       }
 
       p {
-        font-family: Helvetica, serif;
+        font-family: bree, sans-serif;
+        font-weight: 200;
+        font-style: normal;
       }
 
       button {
-        background-color: orange;
+        background-color: lightblue;
         border: none;
         border-radius: 12px;
         padding: 10px 10px;
         text-align: center;
         text-decoration: none;
-        color: black;
         font-size: 0.75rem;
         margin: 10px;
-        color: black;
-        font-family: hwt-roman-extended-light-fac, serif;
+        color: white;
+         font-family: bree, sans-serif;
+        font-weight: 200;
+        font-style: normal;
       }
 
       button:hover {
-        border-color: red;
+        border-color: white;
         border-style: dotteD;
         cursor: pointer;
       }
 
+
       .valgt {
         background-color: white;
-        border-color: orange;
+        border-color: lightblue;
         border-style: dotted;
+        color: #C83200;
       }
 
       .pop_up {
@@ -106,7 +130,7 @@
         top: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(255, 166, 0, 0.28);
+        background-color: rgba(198,228,238,0.4);
         overflow: scroll;
       }
 
@@ -116,8 +140,8 @@
         border-radius: 25px;
         padding: 12px;
         background-color: white;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        position: fixed;
+        left: 14vw;
       }
 
       #pop_up .tekst {
@@ -125,7 +149,7 @@
       }
 
       #pop_up .pop_up_article img {
-          width: 90%;
+          width: 100%;
           height: auto;
       }
 
@@ -134,43 +158,176 @@
         padding: 1rem;
         font-size: 1.7rem;
         font-weight: bolder;
-        color: red;
+        color: #C83200;
         cursor: pointer;
-        top: 1vw;
-       left: 15vh;
+        top: 2vw;
+       left: 8vh;
       }
 
       .mere {
           font-style: italic;
-          color: orange;
+          color: lightblue;
       }
 
       .mere:hover {
           transform: scale(1.01);
-          color: red;
+          color: #C83200;
           cursor: pointer
       }
+      
+      .blur {
+          filter: blur(4px);
+      }
 
-      @media (min-width: 600px) {
+
+      /* ------------Til toppen----------------- */
+
+#btnScrollToTop {
+  position: fixed;
+  right: 10px;
+  bottom: 35px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: lightblue;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  color: white;
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+#btnScrollToTop:active {
+  background: #2E5984;
+}
+
+#burger {
+    position: absolute;
+    display: flex;
+    padding-top: 35px;
+    flex-direction: column;
+    background-color: rgba(198,228,238,0.31);
+}
+
+
+.menuknap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+  /* border: 3px solid gray; */
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.menuknap_burger {
+  width: 30px;
+  height: 2px;
+  background: #231709;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menuknap_burger::before,
+.menuknap_burger::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 2px;
+  background: #231709;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(255, 101, 47, 0.2);
+  transition: all 0.5s ease-in-out;
+}
+
+.menuknap_burger::before {
+  transform: translateY(-10px);
+}
+
+.menuknap_burger::after {
+  transform: translateY(10px);
+}
+
+/* -----header animation---- */
+
+.menuknap.open .menuknap_burger {
+  transform: translateX(50px);
+  background: transparent;
+}
+
+.menuknap.open .menuknap_burger::before {
+  transform: rotate(45deg) translate(-35px, 35px);
+}
+
+.menuknap.open .menuknap_burger::after {
+  transform: rotate(-45deg) translate(-35px, -35px);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-100vw);
+}
+
+.ingen_menu {
+    display: none;
+}
+
+
+      @media (min-width: 800px) {
         header h1 {
-          font-size: 40px;
+          font-size: 90px;
         }
         nav {
           margin-left: 10vw;
+          grid-column: 1 /3;
         }
 
         button {
-          font-size: 0.75rem;
+          font-size: 1rem;
         }
+
+          #pop_up .pop_up_article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        place-items: center;
       }
+
+    .menuknap{
+            display: none;
+        }
+
+        h2 {
+             grid-column: 1 / 3;
+             margin-left: 10vw;
+        }
+
+        .ingen_menu {
+    display: initial;
+      }
+
+      #luk {
+        top: 1vw;
+       left: 14vh;
+      }   
+
 
       @media (min-width: 900px) {
         header h1 {
-          font-size: 70px;
+          font-size: 100px;
         }
         nav {
           margin-left: 10vw;
         }
+         button {
+          font-size: 1.05rem;
+        }
+
+}
       }
     </style>
   </head>
@@ -179,8 +336,9 @@
       <header>
         <h1>Bistro Babushka</h1>
       </header>
+      <div class="headerTop">
       <h2>Menu</h2>
-      <nav>
+            <nav class="ingen_menu">
         <button data-kategori="alle" class="alle">Alle</button>
         <button data-kategori="forretter" class="valgt">Forretter</button>
         <button data-kategori="hovedretter">Hovedretter</button>
@@ -188,6 +346,18 @@
         <button data-kategori="desserter">Desserter</button>
         <button data-kategori="drikkevarer">Drikkevarer</button>
       </nav>
+       <div class="menuknap">
+        <div class="menuknap_burger"></div>
+      </div>
+      <nav id=burger class="hidden">
+        <button data-kategori="alle" class="alle">Alle</button>
+        <button data-kategori="forretter" class="valgt">Forretter</button>
+        <button data-kategori="hovedretter">Hovedretter</button>
+         <button data-kategori="sideorders">Sideorders</button>
+        <button data-kategori="desserter">Desserter</button>
+        <button data-kategori="drikkevarer">Drikkevarer</button>
+      </nav>
+      </div>
       <section id="pop_up">
            <div id="luk">&#x2715</div>
       <article class="pop_up_article">
@@ -210,14 +380,21 @@
           <p class="pris"></p>
         </article>
       </template>
+       <button id="btnScrollToTop">
+        <i class="material-icons">arrow_upward</i>
+      </button>
     </main>
     <script>
       document.addEventListener("DOMContentLoaded", start);
       let retter;
       let filter = "alle";
 
+
+      const menuKnap = document.querySelector(".menuknap");
+      let menuOpen = false;
+
       function start() {
-        const filterKnapper = document.querySelectorAll("nav button");
+           let filterKnapper = document.querySelectorAll("nav button");
         filterKnapper.forEach((knap) =>
           knap.addEventListener("click", filtrerRetter)
         );
@@ -228,6 +405,9 @@
         filter = this.dataset.kategori;
         document.querySelector(".valgt").classList.remove("valgt");
         this.classList.add("valgt");
+        menuKnap.classList.remove("open");
+         menuOpen = false;
+        document.querySelector("#burger").classList.add("hidden");
         visRetter(); //kald funktionen visPersonner efter det nye filter er sat
         //header.textContent = this.textContent; //Når der klikkes på en knap, sørger for eventhandeler-funktionen for, at h1 overskriftens indhold opdateres (this henviser til button der er klikket på)
       }
@@ -246,9 +426,11 @@
         visRetter();
       }
 
+
       function visRetter() {
-        const container = document.querySelector("#template_section");
-        const retTemplate = document.querySelector("template").content;
+        //    let container = document.querySelector("#template_section");
+        let container = document.querySelector("#template_section");
+        let retTemplate = document.querySelector("template").content;
         container.textContent = "";
         retter.forEach((ret) => {
           console.log("Kategori", ret.kategori);
@@ -290,9 +472,30 @@
             });
       }
 
-      //   function visDetaljer(hvem) {
-      //     location.href = `single_ret.html?id=${hvem._id}`; //her navigere vi med location.href hen til en side vi ikke har lavet endnu
-      //   }
+const ScrollToTop = document.querySelector("#btnScrollToTop");
+
+ScrollToTop.addEventListener("click", () => {
+  // window.scrollTo(0, 0);
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+});
+
+
+menuKnap.addEventListener("click", () => {
+  if (!menuOpen) {
+    menuKnap.classList.add("open");
+    menuOpen = true;
+    document.querySelector("#burger").classList.remove("hidden");
+  } else {
+    menuKnap.classList.remove("open");
+    menuOpen = false;
+    document.querySelector("#burger").classList.add("hidden");
+  }
+});
+
     </script>
   </body>
 </html>
